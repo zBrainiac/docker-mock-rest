@@ -1,0 +1,15 @@
+{
+  "request" : {
+    "urlPathPattern" : "/api/v1/test/.*",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "delayDistribution": {
+      "type": "uniform",
+      "lower": 222,
+      "upper": 1111
+    },
+    "body" : "{\"testSpecification\": {\"uuid\":\"{{request.path.[3]}}\", \"utcTsd\":\"{{now format='yyyy-MM-dd HH:mm:ss.SSSS'}}\"}}"
+  }
+}

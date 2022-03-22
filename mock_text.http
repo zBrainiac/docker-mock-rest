@@ -1,0 +1,9 @@
+@BASE_URI=http://localhost:8080
+
+### show all mappings
+GET  {{BASE_URI}}/__admin/mappings
+
+
+
+### GET test endpoint with value
+GET  {{BASE_URI}}/api/v1/test/1234

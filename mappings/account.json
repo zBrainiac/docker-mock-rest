@@ -1,0 +1,10 @@
+{
+    "request" : {
+      "urlPathPattern" : "/api/v1/account/.*",
+      "method" : "GET"
+    },
+    "response" : {
+      "status" : 200,
+      "body" : "{\"accountSpecification\": {\"id\":\"{{request.path.[2]}}\"}}"
+    }
+  }
