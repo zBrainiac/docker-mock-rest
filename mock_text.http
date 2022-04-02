@@ -15,5 +15,9 @@ GET  {{BASE_URI}}/api/v1/test/4711
 GET {{BASE_URI}}/api/v2/test/4711
 
 
+### GET test endpoint v3 via HAproxy with value
+GET {{BASE_URI}}/api/v3/test/4711
+
+
 ### GET statistic dashboard (website)
 GET http://localhost:80/haproxy?stats
