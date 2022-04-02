@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  wiremock:
+  wiremock_0:
     image: brainiac/multiarch-wiremock:0.1.0
-    container_name: wiremock
+    container_name: wiremock_0
     volumes:
       - ./__files:/home/wiremock/__files
       - $PWD/mappings:/home/wiremock/mappings
@@ -12,3 +12,40 @@ services:
     command:
       - --verbose
       - --global-response-templating
+
+  wiremock_1:
+    image: brainiac/multiarch-wiremock:0.1.0
+    container_name: wiremock_1
+    volumes:
+      - ./__files:/home/wiremock/__files
+      - $PWD/mappings:/home/wiremock/mappings
+    ports:
+      - "8081:8080"
+    command:
+      - --verbose
+      - --global-response-templating
+  
+  wiremock_2:
+    image: brainiac/multiarch-wiremock:0.1.0
+    container_name: wiremock_2
+    volumes:
+      - ./__files:/home/wiremock/__files
+      - $PWD/mappings:/home/wiremock/mappings
+    ports:
+      - "8082:8080"
+    command:
+      - --verbose
+      - --global-response-templating
+
+  haproxy:
+    image: haproxy:alpine
+    container_name: haproxy
+    restart: always
+    depends_on:
+      - wiremock_0
+      - wiremock_1
+      - wiremock_2
+    ports:
+      - "80:80"
+    volumes:
+      - $PWD/haproxy:/usr/local/etc/haproxy:ro

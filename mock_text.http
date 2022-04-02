@@ -1,9 +1,19 @@
-@BASE_URI=http://localhost:8080
+@BASE_URI=http://localhost:80
 
 ### show all mappings
 GET  {{BASE_URI}}/__admin/mappings
 
-
-
 ### GET test endpoint with value
-GET  {{BASE_URI}}/api/v1/test/1234
+GET  http://localhost:8080/api/v1/test/4711
+
+
+### GET test endpoint v1 via HAproxy with value
+GET  {{BASE_URI}}/api/v1/test/4711
+
+
+### GET test endpoint v2 via HAproxy with value
+GET {{BASE_URI}}/api/v2/test/4711
+
+
+### GET statistic dashboard (website)
+GET http://localhost:80/haproxy?stats

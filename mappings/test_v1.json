@@ -10,6 +10,6 @@
       "lower": 222,
       "upper": 1111
     },
-    "body" : "{\"testSpecification\": {\"uuid\":\"{{request.path.[3]}}\", \"utcTsd\":\"{{now format='yyyy-MM-dd HH:mm:ss.SSSS'}}\"}}"
-  }
+    "body" : "{\"testSpecification\": {\"uuid\":\"{{request.path.[3]}}\", \"utcTsd\":\"{{now format='yyyy-MM-dd HH:mm:ss.SSSS'}}\", \"precision\": \"{{randomDecimal lower=-10.1 upper=-0.9}}\" }}"
+    }
 }
